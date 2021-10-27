@@ -1,0 +1,30 @@
+header
+  nav.navbar.bg-dark.navbar-dark.navbar-expand-lg.fixed-top
+    div.container-fluid.px-md-5
+      a.navbar-brand(href='/') #[i.bi.bi-suit-club.me-2]Club House 
+      if user
+        div.navbar-nav.align-items-center
+        span.text-light.fw-bold.me-2 Hello, #{user.username}
+        div.dropdown
+          button.btn.border-0.p-0.m-2(
+            type='button' 
+            data-bs-toggle='dropdown') 
+            | #[img.rounded-circle.bg-light.p-1(src=`images/avatars/${user.avatar}.svg`, alt="User's avatar", width='32px')]
+          ul.dropdown-menu.dropdown-menu-end
+            li
+              a.dropdown-item(href=user.url)= user.username
+            li.dropdown-divider
+            li
+              a.dropdown-item(href='#') Logout
+      else 
+        button.navbar-toggler(
+          type='button' 
+          data-bs-toggle='collapse' 
+          data-bs-target='#navmenu')
+          | #[span.navbar-toggler-icon]
+        div#navmenu.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto
+            li.nav-item.mx-lg-4
+              a.nav-link.text-light.fw-bold(href='/signup') #[i.bi.bi-pencil-square.me-2.icon-blue]Sign up
+            li.nav-item
+              a.nav-link.text-light.fw-bold(href='/login') #[i.bi.bi-box-arrow-in-right.me-2.icon-blue]Log in
