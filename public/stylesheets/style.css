@@ -2,32 +2,15 @@
   box-sizing: border-box;
 }
 
-@media only screen and (min-width: 992px) {
-  body::before {
-    display: block;
-    content: '';
-    height: 60px;
-  }
-}
-
-@media only screen and (max-width: 992px) {
-  body::before {
-    display: block;
-    content: '';
-    height: 80px;
-  }
-}
-
-@media only screen and (max-width: 254px) {
-  body::before {
-    display: block;
-    content: '';
-    height: 110px;
-  }
+html,
+body {
+  min-height: 100vh;
 }
 
 body {
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -49,12 +32,26 @@ p {
   left: auto;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-}
-
 .link-style-remove {
   color: inherit;
+}
+
+#message i {
+  font-size: 3rem;
+}
+
+.bg-gray {
+  background-color: rgba(50, 57, 63, 0.739);
+}
+
+.bg-lightgray {
+  background-color: rgba(50, 57, 63);
+}
+
+#btnPostMsg {
+  transition: 0.25s ease all;
+}
+
+#btnPostMsg:hover {
+  background-color: rgba(255, 255, 255, 0.774);
 }

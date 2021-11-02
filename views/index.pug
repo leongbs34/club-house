@@ -1,5 +1,28 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  include includes/post_message_form
+
+  section.bg-dark.p-md-4.flex-grow-1
+    if user 
+      include includes/post_message_btn
+    for message in messages
+      div.container-md.bg-gray.rounded.p-4.col-12.col-md-6.mt-4.shadow.text-light
+        div.row.mb-3
+          div.col-1
+            img.border.border-primary.rounded-circle.bg-light.p-1(src=`images/avatars/${message.user.avatar}.svg`, alt="User's avatar", width="48px")
+          div.col-11
+            if user
+              span.h6.fw-bold.row.mb-0= message.user.first_name
+            else 
+              span.h6.fw-bold.row.mb-0 Anonymous
+            span.row= message.timestamp_formatted
+        div.row
+          span.h2.fw-bold= message.title
+          section.bg-lightgray.shadow.py-3.rounded-3
+            span= message.text
+      
+    if errors
+      ul.list-unstyled.mt-2
+        for error in errors
+          li.text-danger.fw-bold * !{error.msg}

@@ -1,0 +1,23 @@
+extends layout 
+
+block content
+  section.bg-secondary.p-md-4.flex-grow-1.d-flex.align-items-center
+    if type==='danger'
+      div#message.container-md.bg-danger.text-light.rounded-3.p-5.col-12.col-md-4.align-middle
+        i.bi.bi-exclamation-circle-fill.me-4
+        span.h3= msg
+      
+        if errors
+          ul.list-unstyled.mt-2
+            for error in errors
+              li.text-danger.fw-bold * !{error.msg}
+
+    if type==='success'
+      div#message.container-md.bg-success.text-light.rounded-3.p-5.col-12.col-md-4.align-middle
+        i.bi.bi-exclamation-circle-fill.me-4
+        span.h3= msg
+      
+        if errors
+          ul.list-unstyled.mt-2
+            for error in errors
+              li.text-danger.fw-bold * !{error.msg}

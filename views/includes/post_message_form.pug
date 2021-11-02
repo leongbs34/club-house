@@ -1,0 +1,15 @@
+div(class="modal fade" id="postMessageModal" tabindex="-1" aria-labelledby="postMessageModalLabel" aria-hidden="true")
+  div(class="modal-dialog modal-dialog-centered")
+    div(class="modal-content")
+      div.text-center(class="modal-header")
+        h5.w-100.fw-bold(class="modal-title" id="postMessageModalLabel") Create post
+        button(type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close")
+      div(class="modal-body")
+        form(action='/postMessage' method="POST") 
+          div.mb-3
+            label.form-label(for="message_title") Title#[span.text-danger *]
+            input#message_title.form-control(type="text" required=true name='message_title' placeholder='Title')
+          div.mb-3
+            label.form-label(for="message_text") Message#[span.text-danger *]
+            textarea#message_text.form-control(type="text" required=true name='message_text' rows='6' placeholder="What's on your mind?")
+          button.w-100(type="submit" class="btn btn-primary") Post

@@ -9,16 +9,11 @@ var UserSchema = new Schema({
   membership: {type: Boolean, default: false},
   avatar: { 
     type: String, 
-    enum: ['alien', 'clown', 'cowboy', 'devil', 'evil', 'ghost', 'robot', 'spy'], 
-    default: 'alien', 
+    enum: ['alien', 'clown', 'cowboy', 'devil', 'evil', 'ghost', 'robot', 'spy'],
+    default: 'alien',
     required: true
   },
-  message: [{
-    title: String,
-    timestamp: {type: Date, default: Date.now},
-    text: String
-  }],
-  is_admin: {type: Boolean}
+  is_admin: {type: Boolean, default: false}
 })
 
 UserSchema

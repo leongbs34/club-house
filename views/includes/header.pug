@@ -1,10 +1,10 @@
 header
-  nav.navbar.bg-dark.navbar-dark.navbar-expand-lg.fixed-top
+  nav.navbar.bg-black.navbar-dark.navbar-expand-lg
     div.container-fluid.px-md-5
       a.navbar-brand(href='/') #[i.bi.bi-suit-club.me-2]Club House 
       if user
-        div.navbar-nav.align-items-center
-        span.text-light.fw-bold.me-2 Hello, #{user.username}
+        div.navbar-nav.ms-auto
+        span.text-light.fw-bold.me-2 Hello, #{user.first_name}
         div.dropdown
           button.btn.border-0.p-0.m-2(
             type='button' 
@@ -12,10 +12,13 @@ header
             | #[img.rounded-circle.bg-light.p-1(src=`images/avatars/${user.avatar}.svg`, alt="User's avatar", width='32px')]
           ul.dropdown-menu.dropdown-menu-end
             li
-              a.dropdown-item(href=user.url)= user.username
+              a.dropdown-item(href='#')= user.username
             li.dropdown-divider
+            if !user.membership
+              li 
+                a.dropdown-item(href='/membership') Join membership
             li
-              a.dropdown-item(href='#') Logout
+              a.dropdown-item(href='/logout') Logout
       else 
         button.navbar-toggler(
           type='button' 
