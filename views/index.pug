@@ -12,7 +12,7 @@ block content
           div.col-1
             img.border.border-primary.rounded-circle.bg-light.p-1(src=`images/avatars/${message.user.avatar}.svg`, alt="User's avatar", width="48px")
           if user && (user.membership || user.is_admin)
-            div.col-11.d-flex.justify-content-between
+            div.col-11.d-flex.justify-content-between.ps-xl-4.ps-md-5.ps-md-3.ps-5
               div
                 span.h6.fw-bold.row.mb-0= message.user.first_name
                 div#clock_icon
@@ -24,7 +24,7 @@ block content
                   button.btn.btn-danger(type='submit')
                     i.bi.bi-trash-fill 
           else
-            div.col-11
+            div.col-11.ps-xl-4.ps-md-5.ps-md-3.ps-5
               span.h6.fw-bold.row.mb-0 Anonymous
               div#clock_icon
                 i.bi.bi-clock-fill.row.align-items-center.me-0
