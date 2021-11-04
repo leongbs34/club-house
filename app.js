@@ -12,7 +12,6 @@ const bcrypt = require('bcryptjs');
 var flash = require('express-flash');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -38,7 +37,6 @@ app.use(passport.session());
 app.use(flash());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 passport.use(
   new LocalStrategy((username, password, done) => {

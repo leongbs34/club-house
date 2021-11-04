@@ -32,7 +32,9 @@ router.get("/membership", checkAuthenticated, (req, res) => {
   res.render('membership_form', {title: 'Join Membership', user: req.user})
 });
 
-router.post("/membership", checkAuthenticated ,userController.user_update_membership);
+router.post("/membership", checkAuthenticated , userController.user_update_membership);
+
+router.post("/delete_message", checkAuthenticated , messageController.message_delete_post);
 
 function checkAuthenticated(req,res,next){
   if(req.isAuthenticated()){

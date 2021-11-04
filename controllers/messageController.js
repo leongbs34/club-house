@@ -43,3 +43,20 @@ exports.message_create_post = [
     }
   }
 ]
+
+exports.message_delete_post = (req, res, next) => {
+
+  Message.findById(req.body.messageID, (err, message) => {
+    if (err) { return next(err); }
+    if (message === null) {
+        res.render('message', { title: 'Not found', type: 'warning', msg: 'Message not found' } );
+        return;
+    }
+    else {
+        Message.findByIdAndRemove(req.body.messageID, function deleteMessage (err) {
+            if (err) return next(err);
+            res.redirect('/');
+        })
+    }
+  });
+};

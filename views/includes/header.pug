@@ -16,9 +16,11 @@ header
             li.dropdown-divider
             if !user.membership
               li 
-                a.dropdown-item(href='/membership') Join membership
+                a.dropdown-item(href='/membership')
+                  i.bi.bi-people.fst-normal &nbsp;Join member
             li
-              a.dropdown-item(href='/logout') Logout
+              a.dropdown-item(href='/logout') 
+                i.bi.bi-box-arrow-left.fst-normal &nbsp;Logout
       else 
         button.navbar-toggler(
           type='button' 

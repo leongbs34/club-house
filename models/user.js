@@ -22,10 +22,4 @@ UserSchema
   return `${first_name} ${last_name}`;
 })
 
-UserSchema
-.virtual('url')
-.get(() => {
-  return '/user/' + this._id;
-})
-
 module.exports = mongoose.model('User', UserSchema)
